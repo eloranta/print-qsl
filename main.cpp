@@ -4,38 +4,102 @@
 #include <QPrintDialog>
 #include <QPainter>
 
-void printPage(QPainter* thePainter, int thePage)
+void printPage(QPainter* painter, int thePage)
 {
-    // Set pen
     QPen aPen;
     aPen.setColor(Qt::black);
     aPen.setWidth(0);
     aPen.setStyle(Qt::SolidLine);
-    thePainter->setPen(aPen);
+    painter->setPen(aPen);
+
+    painter->drawRect(520, 240, 500, 310);
+
 
     // Set brush
 //    QBrush aBrush;
 //    aBrush.setColor(Qt::black);
 //    aBrush.setStyle(Qt::SolidPattern);
-//    thePainter->setBrush(aBrush);
+//    painter->setBrush(aBrush);
 
-    // Set font
-    QFont aFont;
-    aFont.setFamily("Arial");
-    aFont.setPixelSize(10); // ??? how to set the font size to 1cm ???
-    aFont.setWeight(QFont::Normal);
-    aFont.setItalic(false);
-    thePainter->setFont(aFont);
+    QFont font;
+    font.setFamily("Arial");
+    font.setPixelSize(32);
+    font.setWeight(QFont::Bold);
+    font.setItalic(false);
+    painter->setFont(font);
 
-    // Draw line
-//    thePainter->drawLine(QPoint(1000, 1000), QPoint(5000, 5000));
+    int x0 = 550;
+    int y0 = 290;
+    int dy = 14;
+    painter->drawText(x0, y0, "OH2LHE");
 
-    // Print a rectangle
-    thePainter->drawRect(QRect(1, 1, 80, 130));
+    font.setPixelSize(dy);
+    painter->setFont(font);
+    int y = 310;
+    painter->drawText(x0, y, "Hannu Eloranta");
+    y+= dy;
+    painter->drawText(x0, y, "Maininkitie 9 G 87");
+    y+= dy;
+    painter->drawText(x0, y, "02320 Espoo");
+    y+= dy;
+    painter->drawText(x0, y, "FINLAND");
+    y+= 2*dy;
+    painter->drawText(x0, y, "CQ 15");
+    y+= dy;
+    painter->drawText(x0, y, "ITU 18");
+    y+= dy;
+    painter->drawText(x0, y, "Grid: KP11mk");
+    y+= 2*dy;
+    painter->drawLine(x0, y, x0 + 950, y);
+    y+= 2*dy;
+    painter->drawLine(x0, y, x0 + 950, y);
+    y+= 2*dy;
+    painter->drawLine(x0, y, x0 + 950, y);
+    y+= 2*dy;
 
-    // Print a text
-    thePainter->drawText(520, 240, "(520,240)");
-    thePainter->drawText(1020, 550, "(1020,550)");
+    font.setWeight(QFont::Normal);
+    font.setItalic(true);
+    painter->setFont(font);
+    painter->drawText(x0, y, "Photo by OH2LHE: Waxwing (Bombycilla garrulus)");
+
+    painter->drawRoundedRect(700, 260, 300, 130, 10, 10);
+    y = 300;
+    painter->drawLine(700, y, 1000, y);
+    dy = 22;
+    y += dy;
+    painter->drawLine(700, y, 1000, y);
+    y += dy;
+    painter->drawLine(700, y, 1000, y);
+    y += dy;
+    painter->drawLine(700, y, 1000, y);
+
+    int x = 800;
+    int dx = 50;
+    painter->drawLine(x, 300, 800, 390);
+    x += dx;
+    painter->drawLine(x, 300, x, 390);
+    x += dx;
+    painter->drawLine(x, 300, x, 390);
+    x += dx;
+    painter->drawLine(x, 300, x, 390);
+
+    font.setItalic(false);
+    painter->setFont(font);
+
+    x = 735;
+    y = 316;
+    painter->drawText(x, y, "Date");
+    painter->drawText(x+75, y, "UTC");
+    painter->drawText(x+125, y, "MHz");
+    painter->drawText(x+172, y, "2-way");
+    painter->drawText(x+225, y, "RST");
+
+    dy = 10;
+    font.setItalic(false);
+    font.setPixelSize(dy);
+    painter->setFont(font);
+    painter->drawText(710, 277, "Confirming");
+    painter->drawText(710, 277+dy+1, "QSO with");
 
 }
 
