@@ -34,8 +34,8 @@ void printPage(QPainter* thePainter, int thePage)
     thePainter->drawRect(QRect(1, 1, 80, 130));
 
     // Print a text
-    thePainter->drawText(600, 300, "(600,300)");
-    thePainter->drawText(900, 500, "(900,500)");
+    thePainter->drawText(520, 240, "(520,240)");
+    thePainter->drawText(1020, 550, "(1020,550)");
 
 }
 
