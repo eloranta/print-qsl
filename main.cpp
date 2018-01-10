@@ -31,11 +31,12 @@ void printPage(QPainter* thePainter, int thePage)
 //    thePainter->drawLine(QPoint(1000, 1000), QPoint(5000, 5000));
 
     // Print a rectangle
-    thePainter->drawRect(QRect(1, 1, 20, 40));
+    thePainter->drawRect(QRect(1, 1, 80, 130));
 
     // Print a text
-    QString Text = QString("oh2lhe");
-    thePainter->drawText(10, 10, Text);
+    thePainter->drawText(600, 300, "(600,300)");
+    thePainter->drawText(900, 500, "(900,500)");
+
 }
 
 int main(int argc, char *argv[])
@@ -50,14 +51,16 @@ int main(int argc, char *argv[])
     if (dialog->exec() != QDialog::Accepted)
             return -1;
 
+    printer.setPageOrientation(QPageLayout::Landscape);
+
     QPainter aPainter;
     aPainter.begin(&printer);
-    int aLogicalWidth  = 210;
-    int aLogicalHeight = 297;
-    aPainter.setWindow(0, 0, aLogicalWidth, aLogicalHeight);
-    int aPhysicalWidth  = printer.width();
-    int aPhysicalHeight = printer.height();
-    aPainter.setViewport(0, 0, aPhysicalWidth, aPhysicalHeight);
+//    int aLogicalWidth  = printer.width();
+//    int aLogicalHeight = printer.height();
+//    aPainter.setWindow(0, 0, aLogicalWidth, aLogicalHeight);
+//    int aPhysicalWidth  = printer.width();
+//    int aPhysicalHeight = printer.height();
+//    aPainter.setViewport(0, 0, aPhysicalWidth, aPhysicalHeight);
 
     // Print all pages
     bool aFirstPage = true;
