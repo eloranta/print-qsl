@@ -12,7 +12,7 @@ void printPage(QPainter* painter, int thePage)
     aPen.setStyle(Qt::SolidLine);
     painter->setPen(aPen);
 
-    painter->drawRect(520, 240, 500, 310);
+//    painter->drawRect(520, 240, 500, 310);
 
 
     // Set brush
@@ -34,6 +34,7 @@ void printPage(QPainter* painter, int thePage)
     painter->drawText(x0, y0, "OH2LHE");
 
     font.setPixelSize(dy);
+    dy++;
     painter->setFont(font);
     int y = 310;
     painter->drawText(x0, y, "Hannu Eloranta");
@@ -49,20 +50,26 @@ void printPage(QPainter* painter, int thePage)
     painter->drawText(x0, y, "ITU 18");
     y+= dy;
     painter->drawText(x0, y, "Grid: KP11mk");
-    y+= 2*dy;
-    painter->drawLine(x0, y, x0 + 950, y);
-    y+= 2*dy;
-    painter->drawLine(x0, y, x0 + 950, y);
-    y+= 2*dy;
-    painter->drawLine(x0, y, x0 + 950, y);
-    y+= 2*dy;
 
     font.setWeight(QFont::Normal);
+    painter->setFont(font);
+    painter->drawText(x0+170, y, "Pse QSL Tnx              73, op.");
+
+    painter->drawLine(x0+370, y, 1020, y);
+
+    y+= 2*dy;
+    painter->drawLine(x0, y, 1020, y);
+    y+= 2*dy;
+    painter->drawLine(x0, y, 1020, y);
+    y+= 2*dy;
+    painter->drawLine(x0, y, 1020, y);
+    y+= 2*dy;
+
     font.setItalic(true);
     painter->setFont(font);
     painter->drawText(x0, y, "Photo by OH2LHE: Waxwing (Bombycilla garrulus)");
 
-    painter->drawRoundedRect(700, 260, 300, 130, 10, 10);
+    painter->drawRoundedRect(700, 260, 300, 128, 10, 10);
     y = 300;
     painter->drawLine(700, y, 1000, y);
     dy = 22;
@@ -75,13 +82,13 @@ void printPage(QPainter* painter, int thePage)
 
     int x = 800;
     int dx = 50;
-    painter->drawLine(x, 300, 800, 390);
+    painter->drawLine(x, 300, 800, 388);
     x += dx;
-    painter->drawLine(x, 300, x, 390);
+    painter->drawLine(x, 300, x, 388);
     x += dx;
-    painter->drawLine(x, 300, x, 390);
+    painter->drawLine(x, 300, x, 388);
     x += dx;
-    painter->drawLine(x, 300, x, 390);
+    painter->drawLine(x, 300, x, 388);
 
     font.setItalic(false);
     painter->setFont(font);
@@ -98,8 +105,8 @@ void printPage(QPainter* painter, int thePage)
     font.setItalic(false);
     font.setPixelSize(dy);
     painter->setFont(font);
-    painter->drawText(710, 277, "Confirming");
-    painter->drawText(710, 277+dy+1, "QSO with");
+    painter->drawText(710, 275, "Confirming");
+    painter->drawText(710, 275+dy+5, "QSO with");
 
 }
 
