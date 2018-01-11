@@ -172,6 +172,14 @@ void MainWindow::printPage(QPainter* painter)
     painter->drawText(x+172, y, "2-way");
     painter->drawText(x+225, y, "RST");
 
+    x = 570;
+    y = 440;
+    painter->drawText(x, y, ui->lineEdit->text());
+    y += 28;
+    painter->drawText(x, y, ui->lineEdit_2->text());
+    y += 28;
+    painter->drawText(x, y, ui->lineEdit_3->text());
+
     dy = 10;
     font.setItalic(false);
     font.setPixelSize(dy);
