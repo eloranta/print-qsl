@@ -40,9 +40,6 @@ void MainWindow::printPage(QPainter* painter)
     aPen.setStyle(Qt::SolidLine);
     painter->setPen(aPen);
 
-//    painter->drawRect(520, 240, 500, 310);
-
-
     QFont font;
     font.setFamily("Arial");
     font.setPixelSize(32);
@@ -53,7 +50,10 @@ void MainWindow::printPage(QPainter* painter)
     int x0 = 550;
     int y0 = 290;
     int dy = 14;
-    painter->drawText(x0, y0, "OH2LHE");
+    if (ui->radioButton->isChecked())
+        painter->drawText(x0, y0, "OH2LHE");
+    else
+        painter->drawText(x0, y0, "OG2Z");
 
     font.setPixelSize(dy);
     dy++;
