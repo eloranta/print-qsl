@@ -32,6 +32,15 @@ void MainWindow::print()
     painter.end();
 }
 
+QString MainWindow::getData(int x, int y)
+{
+    QTableWidgetItem *item = ui->tableWidget->item(x, y);
+    if (item)
+        return item->text();
+    else
+        return "";
+}
+
 void MainWindow::printPage(QPainter* painter)
 {
     QPen aPen;
@@ -90,6 +99,8 @@ void MainWindow::printPage(QPainter* painter)
     font.setItalic(true);
     painter->setFont(font);
     painter->drawText(x0, y, "Photo by OH2LHE: Waxwing (Bombycilla garrulus)");
+    font.setItalic(false);
+    painter->setFont(font);
 
     painter->drawRoundedRect(700, 260, 300, 128, 10, 10);
     y = 300;
@@ -112,8 +123,46 @@ void MainWindow::printPage(QPainter* painter)
     x += dx;
     painter->drawLine(x, 300, x, 388);
 
-    font.setItalic(false);
-    painter->setFont(font);
+    x = 715;
+    y = 338;
+    painter->drawText(x, y, getData(1, 0));
+    y += dy;
+    painter->drawText(x, y, getData(2, 0));
+    y += dy;
+    painter->drawText(x, y, getData(3, 0));
+
+    x = 810;
+    y = 338;
+    painter->drawText(x, y, getData(1, 1));
+    y += dy;
+    painter->drawText(x, y, getData(2, 1));
+    y += dy;
+    painter->drawText(x, y, getData(3, 1));
+
+    x = 865;
+    y = 338;
+    painter->drawText(x, y, getData(1, 2));
+    y += dy;
+    painter->drawText(x, y, getData(2, 2));
+    y += dy;
+    painter->drawText(x, y, getData(3, 2));
+
+    x = 910;
+    y = 338;
+    painter->drawText(x, y, getData(1, 3));
+    y += dy;
+    painter->drawText(x, y, getData(2, 3));
+    y += dy;
+    painter->drawText(x, y, getData(3, 3));
+
+    x = 960;
+    y = 338;
+    painter->drawText(x, y, getData(1, 4));
+    y += dy;
+    painter->drawText(x, y, getData(2, 4));
+    y += dy;
+    painter->drawText(x, y, getData(3, 4));
+
 
     x = 735;
     y = 316;
@@ -129,5 +178,11 @@ void MainWindow::printPage(QPainter* painter)
     painter->setFont(font);
     painter->drawText(710, 275, "Confirming");
     painter->drawText(710, 275+dy+5, "QSO with");
+
+    font.setPixelSize(16);
+    font.setItalic(true);
+    painter->setFont(font);
+    painter->drawText(930, 410, "Hannu");
+
 
 }

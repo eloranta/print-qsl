@@ -20,6 +20,7 @@ private:
     QPrinter printer;
     void printPage(QPainter* painter);
 private slots:
+    QString getData(int x, int y);
     void print();
 };
 
