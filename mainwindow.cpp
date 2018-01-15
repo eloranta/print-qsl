@@ -84,7 +84,10 @@ void MainWindow::printPage(QPainter* painter)
 
     font.setWeight(QFont::Normal);
     painter->setFont(font);
-    painter->drawText(x0+170, y, "Pse QSL Tnx              73, op.");
+    if (ui->radioButton_3->isChecked())
+        painter->drawText(x0+170, y, "Pse QSL                  73, op.");
+    else
+        painter->drawText(x0+170, y, "Tnx QSL                  73, op.");
 
     painter->drawLine(x0+370, y, 1020, y);
 
@@ -139,7 +142,7 @@ void MainWindow::printPage(QPainter* painter)
     y += dy;
     painter->drawText(x, y, getData(3, 1));
 
-    x = 865;
+    x = 860;
     y = 338;
     painter->drawText(x, y, getData(1, 2));
     y += dy;
@@ -192,5 +195,9 @@ void MainWindow::printPage(QPainter* painter)
     painter->setFont(font);
     painter->drawText(930, 410, "Hannu");
 
-
+    font.setPixelSize(20);
+    font.setItalic(false);
+    font.setWeight(QFont::Bold);
+    painter->setFont(font);
+    painter->drawText(800, 288, ui->lineEdit_4->text());
 }
