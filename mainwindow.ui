@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>521</width>
-    <height>424</height>
+    <height>436</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,9 +25,9 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QRadioButton" name="radioButton">
+        <widget class="QRadioButton" name="radioButton1">
          <property name="text">
-          <string>OH2LHE</string>
+          <string>OG2Z</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -35,9 +35,16 @@
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton_2">
+        <widget class="QRadioButton" name="radioButton2">
          <property name="text">
-          <string>OG2Z</string>
+          <string>OG3Z</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton3">
+         <property name="text">
+          <string>OH2LHE</string>
          </property>
         </widget>
        </item>
@@ -128,7 +135,7 @@
     <item row="2" column="0">
      <widget class="QGroupBox" name="groupBox_2">
       <property name="title">
-       <string>GroupBox</string>
+       <string>QSL</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
