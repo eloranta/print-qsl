@@ -36,8 +36,8 @@ QString MainWindow::getData(int x, int y)
 
 void MainWindow::printPage(QPainter* painter)
 {
-    int x0 = 240;
-    int y0 = 50;
+    int x0 = 260;
+    int y0 = 60;
 
     QFont font;
     font.setFamily("Arial");
