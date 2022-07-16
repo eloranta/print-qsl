@@ -36,12 +36,12 @@ QString MainWindow::getData(int x, int y)
 
 void MainWindow::printPage(QPainter* painter)
 {
-    int x0 = 240;
-    int y0 = 40;
+    int x0 = 200;
+    int y0 = 50;
 
     QFont font;
     font.setFamily("Arial");
-    font.setPixelSize(50);
+    font.setPixelSize(48);
     font.setWeight(QFont::Bold);
     painter->setFont(font);
 
@@ -52,11 +52,11 @@ void MainWindow::printPage(QPainter* painter)
     else
         painter->drawText(x0, y0, "OH2LHE");
 
-    font.setPixelSize(25);
+    font.setPixelSize(20);
     font.setWeight(QFont::Normal);
     painter->setFont(font);
 
-    int y = y0 + 30;
+    int y = y0 + 34;
     int dy = 26;
     painter->drawText(x0, y, "Hannu Eloranta");
     y+= dy;
@@ -65,7 +65,7 @@ void MainWindow::printPage(QPainter* painter)
     painter->drawText(x0, y, "29200 Harjavalta");
     y+= dy;
     painter->drawText(x0, y, "FINLAND");
-    y+= 2*dy;
+    y+= dy + 10;
     painter->drawText(x0, y, "CQ 15");
     y+= dy;
     painter->drawText(x0, y, "ITU 18");
@@ -73,9 +73,9 @@ void MainWindow::printPage(QPainter* painter)
     painter->drawText(x0, y, "Grid: KP11mk");
 
     if (ui->radioButton_3->isChecked())
-        painter->drawText(x0+300, y, "Pse QSL                73, op.");
+        painter->drawText(x0+300, y, "Pse QSL                       73, op.");
     else
-        painter->drawText(x0+300, y, "Tnx QSL                73, op.");
+        painter->drawText(x0+300, y, "Tnx QSL                       73, op.");
 
     QPen aPen;
     aPen.setColor(Qt::black);
@@ -98,25 +98,28 @@ void MainWindow::printPage(QPainter* painter)
     painter->drawText(x0, y, "Photo by OH2LHE: Waxwing (Bombycilla garrulus)");
 
     font.setItalic(false);
-    font.setPixelSize(25);
+    font.setPixelSize(20);
     painter->setFont(font);
 
     int xa = x0 + 240;
     int xb = 940;
-    painter->drawRoundedRect(xa, 10, 460, 200, 10, 10);
+    painter->drawRoundedRect(xa, 10, 940-xa, 200, 10, 10);
 
+    // horizontal lines
     y = 50;
     dy = 40;
-    painter->drawLine(xa, y, xb, y);
+    int db = 3;
+    painter->drawLine(xa, y, xb-db, y);
     y += dy;
-    painter->drawLine(xa, y, xb, y);
+    painter->drawLine(xa, y, xb-db, y);
     y += dy;
-    painter->drawLine(xa, y, xb, y);
+    painter->drawLine(xa, y, xb-db, y);
     y += dy;
-    painter->drawLine(xa, y, xb, y);
+    painter->drawLine(xa, y, xb-db, y);
 
+    // vertical lines
     int x = xa + 150;
-    int dx = 70;
+    int dx = 80;
     painter->drawLine(x, 50, x, 210);
     x += dx;
     painter->drawLine(x, 50, x, 210);
@@ -129,19 +132,19 @@ void MainWindow::printPage(QPainter* painter)
     x = xa+10;
     y = 80;
     painter->drawText(x, y,  "Date");
-    painter->drawText(x+165, y, "UTC");
+    painter->drawText(x+150, y, "UTC");
     painter->drawText(x+230, y, "MHz");
     painter->drawText(x+310, y, "Mode");
-    painter->drawText(x+370, y, "RST");
+    painter->drawText(x+390, y, "RST");
 
     y += dy;
-    painter->drawText(x-20, y, getData(1, 0));
+    painter->drawText(x, y, getData(1, 0));
     y += dy;
-    painter->drawText(x-20, y, getData(2, 0));
+    painter->drawText(x, y, getData(2, 0));
     y += dy;
-    painter->drawText(x-20, y, getData(3, 0));
+    painter->drawText(x, y, getData(3, 0));
 
-    x = xa+115;
+    x = xa+160;
     y = 80 + dy;
     painter->drawText(x, y, getData(1, 1));
     y += dy;
@@ -149,7 +152,7 @@ void MainWindow::printPage(QPainter* painter)
     y += dy;
     painter->drawText(x, y, getData(3, 1));
 
-    x = xa + 185;
+    x = xa + 240;
     y = 80 + dy;
     painter->drawText(x, y, getData(1, 2));
     y += dy;
@@ -157,7 +160,7 @@ void MainWindow::printPage(QPainter* painter)
     y += dy;
     painter->drawText(x, y, getData(3, 2));
 
-    x = xa + 260;
+    x = xa + 320;
     y = 80 + dy;
     painter->drawText(x, y, getData(1, 3));
     y += dy;
@@ -165,7 +168,7 @@ void MainWindow::printPage(QPainter* painter)
     y += dy;
     painter->drawText(x, y, getData(3, 3));
 
-    x = xa + 330;
+    x = xa + 400;
     y = 80 + dy;
     painter->drawText(x, y, getData(1, 4));
     y += dy;
@@ -174,7 +177,7 @@ void MainWindow::printPage(QPainter* painter)
     painter->drawText(x, y, getData(3, 4));
 
     x = x0 + 35;
-    y = 305;
+    y = 300;
     painter->drawText(x, y, ui->lineEdit->text());
     y += 50;
     painter->drawText(x, y, ui->lineEdit_2->text());
@@ -184,17 +187,17 @@ void MainWindow::printPage(QPainter* painter)
     font.setItalic(false);
     font.setPixelSize(15);
     painter->setFont(font);
-    painter->drawText(xa+5, 25, "Confirming");
-    painter->drawText(xa+5, 45, "QSO with");
+    painter->drawText(xa+10, 25, "Confirming");
+    painter->drawText(xa+10, 45, "QSO with");
 
     font.setPixelSize(25);
     font.setWeight(QFont::Bold);
     painter->setFont(font);
-    painter->drawText(xa+120, y0-20, ui->lineEdit_4->text().toUpper());
+    painter->drawText(xa+120, y0-15, ui->lineEdit_4->text().toUpper());
 
     font.setWeight(QFont::Normal);
     font.setPixelSize(20);
     font.setFamily("Segoe Script");
     painter->setFont(font);
-    painter->drawText(850, 265, "Hannu");
+    painter->drawText(800, 250, "Hannu");
 }
