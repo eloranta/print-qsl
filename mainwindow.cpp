@@ -37,7 +37,7 @@ QString MainWindow::getData(int x, int y)
 void MainWindow::printPage(QPainter* painter)
 {
     int x0 = 240;
-    int y0 = 60;
+    int y0 = 40;
 
     QFont font;
     font.setFamily("Arial");
@@ -90,7 +90,7 @@ void MainWindow::printPage(QPainter* painter)
     painter->drawLine(x0, y, 950, y);
     y+= 2*dy;
     painter->drawLine(x0, y, 950, y);
-    y+= 4*dy;
+    y+= 2*dy;
 
     font.setItalic(true);
     font.setPixelSize(15);
@@ -101,9 +101,9 @@ void MainWindow::printPage(QPainter* painter)
     font.setPixelSize(25);
     painter->setFont(font);
 
-    int xa = x0 + 300;
+    int xa = x0 + 240;
     int xb = 940;
-    painter->drawRoundedRect(xa, 10, 400, 200, 10, 10);
+    painter->drawRoundedRect(xa, 10, 460, 200, 10, 10);
 
     y = 50;
     dy = 40;
@@ -115,7 +115,7 @@ void MainWindow::printPage(QPainter* painter)
     y += dy;
     painter->drawLine(xa, y, xb, y);
 
-    int x = xa + 110;
+    int x = xa + 150;
     int dx = 70;
     painter->drawLine(x, 50, x, 210);
     x += dx;
@@ -126,13 +126,13 @@ void MainWindow::printPage(QPainter* painter)
     painter->drawLine(x, 50, x, 210);
 
 
-    x = xa+25;
+    x = xa+10;
     y = 80;
-    painter->drawText(x+8, y,  "Date");
-    painter->drawText(x+95, y, "UTC");
-    painter->drawText(x+165, y, "MHz");
-    painter->drawText(x+230, y, "Mode");
-    painter->drawText(x+310, y, "RST");
+    painter->drawText(x, y,  "Date");
+    painter->drawText(x+165, y, "UTC");
+    painter->drawText(x+230, y, "MHz");
+    painter->drawText(x+310, y, "Mode");
+    painter->drawText(x+370, y, "RST");
 
     y += dy;
     painter->drawText(x-20, y, getData(1, 0));
