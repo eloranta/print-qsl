@@ -46,9 +46,9 @@ void MainWindow::printPage(QPainter* painter)
     painter->setFont(font);
 
     if (ui->radioButton1->isChecked())
-        painter->drawText(x0, y0, "OG2Z");
-    else if (ui->radioButton2->isChecked())
         painter->drawText(x0, y0, "OG3Z");
+    else if (ui->radioButton2->isChecked())
+        painter->drawText(x0, y0, "OG2Z");
     else
         painter->drawText(x0, y0, "OH2LHE");
 
