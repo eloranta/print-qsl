@@ -60,9 +60,9 @@ void MainWindow::printPage(QPainter* painter)
     int dy = 26;
     painter->drawText(x0, y, "Hannu Eloranta");
     y+= dy;
-    painter->drawText(x0, y, "Kelohongantie 14 F 35");
+    painter->drawText(x0, y, "Niittykatu 1 as 10");
     y+= dy;
-    painter->drawText(x0, y, "02120 Espoo");
+    painter->drawText(x0, y, "29200 Harjavalta");
     y+= dy;
     painter->drawText(x0, y, "FINLAND");
     y+= 2*dy;
