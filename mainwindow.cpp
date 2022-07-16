@@ -36,8 +36,8 @@ QString MainWindow::getData(int x, int y)
 
 void MainWindow::printPage(QPainter* painter)
 {
-    int x0 = 240;
-    int y0 = 50;
+    int x0 = 260;
+    int y0 = 60;
 
     QFont font;
     font.setFamily("Arial");
@@ -90,7 +90,7 @@ void MainWindow::printPage(QPainter* painter)
     painter->drawLine(x0, y, 950, y);
     y+= 2*dy;
     painter->drawLine(x0, y, 950, y);
-    y+= 2*dy;
+    y+= 4*dy;
 
     font.setItalic(true);
     font.setPixelSize(15);
@@ -190,11 +190,11 @@ void MainWindow::printPage(QPainter* painter)
     font.setPixelSize(25);
     font.setWeight(QFont::Bold);
     painter->setFont(font);
-    painter->drawText(xa+120, y0-12, ui->lineEdit_4->text());
+    painter->drawText(xa+120, y0-20, ui->lineEdit_4->text().toUpper());
 
     font.setWeight(QFont::Normal);
     font.setPixelSize(20);
     font.setFamily("Segoe Script");
     painter->setFont(font);
-    painter->drawText(835, 255, "Hannu");
+    painter->drawText(850, 265, "Hannu");
 }
