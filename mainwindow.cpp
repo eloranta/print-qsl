@@ -18,9 +18,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::print()
 {
+    // QPrintDialog dialog(&printer, this);
+    // if (dialog.exec() != QDialog::Accepted) return;
     QPainter painter;
     painter.begin(&printer);
     qApp->processEvents();
+    painter.scale(0.65, 0.65);
     printPage(&painter);
     painter.end();
 }
